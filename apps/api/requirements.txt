@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+numpy<2
+sentence-transformers==3.0.1
+transformers<4.50
+huggingface-hub<1
+pytest
+httpx
+sqlalchemy>=2
+psycopg[binary]>=3

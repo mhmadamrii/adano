@@ -1,0 +1,10 @@
+{
+  "name": "adano",
+  "private": true,
+  "scripts": {
+    "dev:web": "pnpm --filter web dev",
+    "dev:api": "cd apps/api && .venv/bin/uvicorn app.main:app --port 8000 --reload",
+    "build": "pnpm --filter web build",
+    "test:api": "cd apps/api && .venv/bin/python -m pytest -q"
+  }
+}
