@@ -1,6 +1,7 @@
-# fraudless-api (Phase 1: ML proof of concept, no UI)
+# fraudless-api (Phase 1: ML proof of concept)
 
 Upload a transaction CSV, get per-row **potentially suspicious** flags and risk scores. Plan: `../../workflows/fraud-less.md`.
+A minimal review UI lives in `../fraudless` (`pnpm dev:fraudless`); it only consumes the contract below.
 A flag is a statistical hint from a model trained on **simulated** data, not evidence of fraud.
 
 ```

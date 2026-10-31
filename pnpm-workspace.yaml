@@ -1,2 +1,17 @@
 packages:
   - apps/*
+
+# Single source of truth for versions shared by every web app. Apps depend on these with "catalog:".
+catalog:
+  "@tanstack/react-router": ^1.170.46
+  "@tanstack/react-start": ^1.169.4
+  react: ^19.3.1
+  react-dom: ^19.3.1
+  vite: ^8.3.5
+  "@vitejs/plugin-react": ^6.1.2
+  typescript: ~5.9.0
+  "@types/node": ^24
+  "@types/react": ^19
+  "@types/react-dom": ^19
+  tailwindcss: ^4.3.3
+  "@tailwindcss/vite": ^4.3.3

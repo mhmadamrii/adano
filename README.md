@@ -6,7 +6,7 @@ Python backend (`apps/<name>-api`, own venv, not part of the pnpm workspace).
 
 | Project | Web | API | Notes |
 | --- | --- | --- | --- |
-| fraudless | _(Phase 3)_ | `apps/fraudless-api` | Transaction audit / fraud-risk scoring. Phase 1 is API + ML only, see `apps/fraudless-api/README.md`. Plan: `workflows/fraud-less.md` |
+| fraudless | `apps/fraudless` (minimal upload/review UI) | `apps/fraudless-api` | Transaction audit / fraud-risk scoring. Phase 1 is API + ML only, see `apps/fraudless-api/README.md`. Plan: `workflows/fraud-less.md` |
 | adano | `apps/adano` | `apps/adano-api` | Adaptive note classifier, see `apps/adano/thesis.md`. FastAPI + sentence-transformers + PostgreSQL (`adano` db) |
 
 ## adano
@@ -24,3 +24,14 @@ pnpm test:adano-api
 ```
 
 Adding a project: `apps/<name>` (+ `apps/<name>-api`), then add `dev:<name>` scripts at the root. Pick a free API port.
+
+## Shared dependency versions (pnpm catalog)
+
+`pnpm-workspace.yaml` has a `catalog:` block holding the version of every shared web dependency (TanStack Start/Router, React, Vite, TypeScript, Tailwind, ...). Apps declare them as `"catalog:"` in their `package.json`, so a bump happens in one place and every app moves together. A new web app copies `apps/fraudless/package.json` and `vite.config.ts`; add a dependency to the catalog only when two apps need it.
+
+## fraudless
+
+```sh
+pnpm dev:fraudless-api   # :8001 (needs Postgres, trained model: pnpm train:fraudless)
+pnpm dev:fraudless       # :3001, proxies /api -> :8001
+```

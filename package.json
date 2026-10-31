@@ -9,6 +9,8 @@
     "dev:fraudless-api": "cd apps/fraudless-api && .venv/bin/uvicorn fraudless.api.main:app --port 8001 --reload",
     "train:fraudless": "cd apps/fraudless-api && .venv/bin/python -m fraudless.training.train --version v1",
     "test:fraudless-api": "cd apps/fraudless-api && .venv/bin/python -m pytest -q",
-    "image:fraudless-api": "cd apps/fraudless-api && podman build -t fraudless-api:phase1 -f Containerfile ."
+    "image:fraudless-api": "cd apps/fraudless-api && podman build -t fraudless-api:phase1 -f Containerfile .",
+    "dev:fraudless": "pnpm --filter fraudless dev",
+    "build:fraudless": "pnpm --filter fraudless build"
   }
 }
