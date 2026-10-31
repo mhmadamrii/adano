@@ -6,6 +6,7 @@ Python backend (`apps/<name>-api`, own venv, not part of the pnpm workspace).
 
 | Project | Web | API | Notes |
 | --- | --- | --- | --- |
+| fraudless | _(Phase 3)_ | `apps/fraudless-api` | Transaction audit / fraud-risk scoring. Phase 1 is API + ML only, see `apps/fraudless-api/README.md`. Plan: `workflows/fraud-less.md` |
 | adano | `apps/adano` | `apps/adano-api` | Adaptive note classifier, see `apps/adano/thesis.md`. FastAPI + sentence-transformers + PostgreSQL (`adano` db) |
 
 ## adano

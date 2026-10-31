@@ -1,0 +1,17 @@
+# Serving image only: the model artifact is mounted, never baked in (train on the host with the CLI).
+FROM docker.io/library/python:3.12-slim
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir --default-timeout=120 --retries 8 -r requirements.txt
+
+COPY fraudless ./fraudless
+
+RUN useradd --system --uid 10001 app
+USER app
+
+ENV PYTHONUNBUFFERED=1 \
+    FRAUDLESS_MODEL_DIR=/models/v1
+
+EXPOSE 8001
+CMD ["uvicorn", "fraudless.api.main:app", "--host", "0.0.0.0", "--port", "8001"]

@@ -1,0 +1,4 @@
+-r requirements.txt
+pyarrow
+pytest
+httpx
