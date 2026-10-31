@@ -8,7 +8,7 @@ importers:
 
   .: {}
 
-  apps/web:
+  apps/adano:
     dependencies:
       '@tanstack/react-router':
         specifier: ^1.170.46

@@ -1,10 +1,10 @@
 {
-  "name": "adano",
+  "name": "ai-apps",
   "private": true,
   "scripts": {
-    "dev:web": "pnpm --filter web dev",
-    "dev:api": "cd apps/api && .venv/bin/uvicorn app.main:app --port 8000 --reload",
-    "build": "pnpm --filter web build",
-    "test:api": "cd apps/api && .venv/bin/python -m pytest -q"
+    "dev:adano": "pnpm --filter adano dev",
+    "dev:adano-api": "cd apps/adano-api && .venv/bin/uvicorn app.main:app --port 8000 --reload",
+    "build:adano": "pnpm --filter adano build",
+    "test:adano-api": "cd apps/adano-api && .venv/bin/python -m pytest -q"
   }
 }
